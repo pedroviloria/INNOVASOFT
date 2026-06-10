@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>InnovaSoft — Software que transforma negocios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFFFF;
+  --bg2:#F7F8FC;
+  --bg3:#EFF1F8;
+  --border:#E3E6F0;
+  --border2:#D0D4E8;
+  --text:#1A1D2E;
+  --text2:#4A5068;
+  --muted:#8A8FA8;
+  --blue:#2563EB;
+  --blue-light:#EEF3FD;
+  --blue-mid:#DBEAFE;
+  --violet:#7C3AED;
+  --violet-light:#F3EFFE;
+  --green:#059669;
+  --green-light:#ECFDF5;
+  --r:12px;
+  --r-lg:20px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito Sans',sans-serif;
+  background:var(--bg);color:var(--text);
+  overflow-x:hidden;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.5rem,6vw,6rem);
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.logo{
+  display:flex;align-items:center;gap:9px;
+  text-decoration:none;
+}
+.logo-icon{
+  width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:900;color:#fff;
+  flex-shrink:0;
+}
+.logo-text{
+  font-family:'Nunito',sans-serif;font-size:1.15rem;font-weight:900;
+  color:var(--text);letter-spacing:-0.02em;
+}
+.logo-text span{color:var(--blue)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-size:.82rem;font-weight:600;color:var(--text2);
+  text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--blue)}
+.nav-btn{
+  font-size:.82rem;font-weight:700;
+  padding:.5rem 1.35rem;border-radius:8px;
+  background:var(--blue);color:#fff;
+  text-decoration:none;transition:background .2s,transform .15s;
+}
+.nav-btn:hover{background:#1d51d1;transform:translateY(-1px)}
+
+/* ─── HERO ─── */
+#hero{
+  padding:120px clamp(1.5rem,6vw,6rem) 80px;
+  display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:5rem;
+  background:var(--bg);
+  position:relative;overflow:hidden;
+}
+.hero-bg-top{
+  position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--blue),var(--violet),#EC4899);
+}
+.hero-blob{
+  position:absolute;top:-120px;right:-180px;
+  width:650px;height:650px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-blob2{
+  position:absolute;bottom:-80px;left:30%;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,0.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-left{position:relative;z-index:1}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.73rem;font-weight:700;letter-spacing:.06em;
+  color:var(--blue);background:var(--blue-light);
+  border:1px solid #BFDBFE;border-radius:999px;
+  padding:.3rem .95rem;margin-bottom:1.75rem;
+}
+.hero-chip-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--blue);
+  animation:blink 2.5s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+h1{
+  font-family:'Nunito',sans-serif;
+  font-size:clamp(2.5rem,4.5vw,4rem);
+  font-weight:900;line-height:1.1;letter-spacing:-0.03em;
+  color:var(--text);margin-bottom:1.5rem;
+}
+h1 .grad{
+  background:linear-gradient(125deg,var(--blue) 0%,var(--violet) 60%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-desc{
+  font-size:1.05rem;color:var(--text2);line-height:1.85;
+  max-width:470px;margin-bottom:2.5rem;font-weight:400;
+}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:'Nunito Sans',sans-serif;font-size:.875rem;font-weight:700;
+  padding:.8rem 1.75rem;border-radius:9px;
+  text-decoration:none;transition:all .18s;
+}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#1d51d1;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,0.25)}
+.btn-ghost{background:var(--bg);color:var(--text);border:1.5px solid var(--border2)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.hero-trust{display:flex;align-items:center;gap:1rem}
+.trust-label{font-size:.75rem;color:var(--muted);font-weight:600}
+.trust-logos{display:flex;gap:.6rem;flex-wrap:wrap}
+.trust-tag{
+  font-size:.7rem;font-weight:700;
+  padding:.25rem .75rem;border-radius:6px;
+  background:var(--bg2);border:1px solid var(--border);
+  color:var(--text2);
+}
+
+/* ─── HERO RIGHT card ─── */
+.hero-right{position:relative;z-index:1}
+.hero-visual{
+  background:var(--bg);
+  border:1.5px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:0 4px 6px rgba(0,0,0,0.04),0 20px 50px rgba(37,99,235,0.07);
+}
+.hv-bar{
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:.75rem 1.25rem;display:flex;align-items:center;gap:.65rem;
+}
+.hv-dot{width:10px;height:10px;border-radius:50%}
+.hv-url{
+  flex:1;background:var(--bg);border:1px solid var(--border);
+  border-radius:6px;padding:.3rem .75rem;
+  font-size:.72rem;color:var(--muted);margin-left:.5rem;
+  display:flex;align-items:center;gap:.4rem;
+}
+.hv-url-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0}
+.hv-body{padding:1.5rem}
+.hv-section-title{
+  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1rem;
+}
+.hv-app-header{
+  display:flex;align-items:center;gap:.75rem;
+  background:var(--blue);border-radius:10px;
+  padding:1rem 1.25rem;margin-bottom:.75rem;
+}
+.hv-app-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.hv-app-name{font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:800;color:#fff}
+.hv-app-sub{font-size:.7rem;color:rgba(255,255,255,.7);margin-top:1px}
+.hv-stats{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.hv-stat{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:9px;padding:.75rem 1rem;
+}
+.hv-stat-num{
+  font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;
+  color:var(--text);line-height:1;margin-bottom:.2rem;
+}
+.hv-stat-label{font-size:.68rem;color:var(--muted);font-weight:600}
+.hv-list{margin-top:.75rem;display:flex;flex-direction:column;gap:.5rem}
+.hv-item{
+  display:flex;align-items:center;gap:.65rem;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:.6rem .85rem;
+}
+.hv-item-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.hv-item-name{font-size:.78rem;font-weight:700;color:var(--text);flex:1}
+.hv-item-badge{
+  font-size:.62rem;font-weight:700;padding:.15rem .55rem;
+  border-radius:999px;
+}
+
+/* ─── SECTION BASE ─── */
+section{padding:90px clamp(1.5rem,6vw,6rem)}
+.eyebrow{
+  font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem;
+}
+.eyebrow::before{
+  content:'';display:inline-block;width:18px;height:2px;
+  background:var(--blue);border-radius:2px;
+}
+h2{
+  font-family:'Nunito',sans-serif;
+  font-size:clamp(1.9rem,3.2vw,2.75rem);
+  font-weight:900;line-height:1.12;letter-spacing:-0.03em;
+  color:var(--text);margin-bottom:1rem;
+}
+.sec-sub{
+  font-size:.97rem;color:var(--text2);line-height:1.8;
+  max-width:500px;font-weight:400;
+}
+
+/* ─── MISIÓN / VISIÓN ─── */
+#mv{background:var(--bg2)}
+.mv-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;
+}
+.mv-card{
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:2.75rem 2.5rem;
+  position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s;
+}
+.mv-card:hover{
+  box-shadow:0 8px 32px rgba(37,99,235,0.08);
+  transform:translateY(-2px);
+}
+.mv-card-top{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:1.5rem;
+}
+.mv-card h3{
+  font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:900;
+  margin-bottom:.85rem;letter-spacing:-0.02em;color:var(--text);
+}
+.mv-card p{font-size:.93rem;color:var(--text2);line-height:1.9;font-weight:400}
+.mv-accent-bar{
+  position:absolute;top:0;left:0;width:4px;height:100%;
+  border-radius:var(--r-lg) 0 0 var(--r-lg);
+}
+
+/* ─── SERVICIOS ─── */
+#servicios{background:var(--bg)}
+.srv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
+  margin-top:3rem;
+}
+.srv-card{
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:2.25rem 2rem;
+  transition:box-shadow .25s,transform .25s,border-color .25s;
+  cursor:default;
+}
+.srv-card:hover{
+  border-color:var(--blue);
+  box-shadow:0 8px 32px rgba(37,99,235,0.1);
+  transform:translateY(-3px);
+}
+.srv-ico{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:1.5rem;
+}
+.srv-card h3{
+  font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:900;
+  margin-bottom:.65rem;letter-spacing:-0.01em;color:var(--text);
+}
+.srv-card p{font-size:.85rem;color:var(--text2);line-height:1.8;font-weight:400}
+.srv-link{
+  display:inline-flex;align-items:center;gap:.35rem;
+  margin-top:1.25rem;font-size:.78rem;font-weight:700;color:var(--blue);
+  text-decoration:none;
+}
+.srv-link:hover{gap:.55rem}
+
+/* ─── CLIENTES ─── */
+#clientes{background:var(--bg2)}
+.cli-intro{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;
+  align-items:end;margin-bottom:3rem;
+}
+.cli-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
+}
+.cli-card{
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:1.75rem 1.75rem 1.5rem;
+  transition:box-shadow .25s,transform .2s;
+  position:relative;overflow:hidden;
+}
+.cli-card:hover{
+  box-shadow:0 8px 28px rgba(0,0,0,0.07);
+  transform:translateY(-2px);
+}
+.cli-top-bar{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  margin-bottom:1.1rem;
+}
+.cli-emoji{font-size:2rem;line-height:1}
+.cli-sector-badge{
+  font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:.22rem .65rem;border-radius:999px;
+}
+.cli-name{
+  font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:900;
+  color:var(--text);letter-spacing:-0.02em;margin-bottom:.3rem;
+}
+.cli-desc{font-size:.8rem;color:var(--text2);font-weight:400;line-height:1.55}
+.cli-footer{
+  margin-top:1.25rem;padding-top:1.1rem;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;gap:.5rem;
+}
+.cli-footer-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--green);
+  flex-shrink:0;
+}
+.cli-footer-txt{font-size:.72rem;font-weight:600;color:var(--muted)}
+
+/* ─── CTA ─── */
+#cta{
+  background:linear-gradient(135deg,#1E40AF 0%,var(--blue) 45%,var(--violet) 100%);
+  padding:80px clamp(1.5rem,6vw,6rem);
+  text-align:center;
+}
+.cta-inner{max-width:640px;margin:0 auto}
+.cta-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.8);background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);border-radius:999px;
+  padding:.3rem .9rem;margin-bottom:1.5rem;
+}
+#cta h2{color:#fff;margin-bottom:1rem;font-size:clamp(2rem,4vw,3rem)}
+#cta p{font-size:1rem;color:rgba(255,255,255,.75);font-weight:400;margin-bottom:2.5rem}
+.btn-white{background:#fff;color:var(--blue);font-weight:700}
+.btn-white:hover{background:#F0F4FF;transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,0,0,0.15)}
+.btn-outline-white{
+  background:transparent;color:#fff;
+  border:1.5px solid rgba(255,255,255,.35);font-weight:600;
+}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+.cta-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--text);
+  padding:2rem clamp(1.5rem,6vw,6rem);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.f-logo{
+  display:flex;align-items:center;gap:9px;
+}
+.f-logo-icon{
+  width:28px;height:28px;border-radius:8px;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Nunito',sans-serif;font-size:.7rem;font-weight:900;color:#fff;
+}
+.f-logo-text{
+  font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:900;color:#fff;
+}
+footer p{font-size:.75rem;color:rgba(255,255,255,.4)}
+
+/* ─── FADE IN ─── */
+.fu{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.fu.vis{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+
+@media(max-width:960px){
+  #hero{grid-template-columns:1fr;gap:3rem}
+  .hero-right{display:none}
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .cli-intro{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .mv-grid,.srv-grid,.cli-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-icon">IS</div>
+    <span class="logo-text">Innova<span>Soft</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#mv">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#clientes">Clientes</a></li>
+  </ul>
+  <a class="nav-btn" href="https://wa.me/573106156150?text=Hola%20InnovaSoft%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20soluciones%20de%20software." target="_blank">Contáctanos</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-top"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+
+  <div class="hero-left">
+    <div class="hero-chip fu"><span class="hero-chip-dot"></span>Software colombiano a medida</div>
+    <h1 class="fu d1">
+      Software que<br><span class="grad">transforma</span><br>tu negocio
+    </h1>
+    <p class="hero-desc fu d2">
+      InnovaSoft crea y distribuye soluciones digitales exactas para cada empresa —
+      gestión, ventas, operaciones — construidas desde cero para ti.
+    </p>
+    <div class="hero-btns fu d3">
+      <a class="btn btn-blue" href="#servicios">Ver servicios →</a>
+      <a class="btn btn-ghost" href="#clientes">Nuestros clientes</a>
+    </div>
+    <div class="hero-trust fu d4">
+      <span class="trust-label">Clientes activos:</span>
+      <div class="trust-logos">
+        <span class="trust-tag">Memory</span>
+        <span class="trust-tag">Asados La Plaza</span>
+        <span class="trust-tag">Burguer Dog</span>
+        <span class="trust-tag">Cantera Orión</span>
+        <span class="trust-tag">+2 más</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right fu d2">
+    <div class="hero-visual">
+      <div class="hv-bar">
+        <div class="hv-dot" style="background:#FF5F57"></div>
+        <div class="hv-dot" style="background:#FFBD2E"></div>
+        <div class="hv-dot" style="background:#28CA41"></div>
+        <div class="hv-url">
+          <div class="hv-url-dot"></div>
+          app.innovasoft.co
+        </div>
+      </div>
+      <div class="hv-body">
+        <div class="hv-section-title">Panel de gestión</div>
+        <div class="hv-app-header">
+          <div class="hv-app-icon">🌭</div>
+          <div>
+            <div class="hv-app-name">Burguer Dog</div>
+            <div class="hv-app-sub">Punto de venta · En línea</div>
+          </div>
+        </div>
+        <div class="hv-stats">
+          <div class="hv-stat">
+            <div class="hv-stat-num">$482k</div>
+            <div class="hv-stat-label">Ventas hoy</div>
+          </div>
+          <div class="hv-stat">
+            <div class="hv-stat-num">37</div>
+            <div class="hv-stat-label">Pedidos activos</div>
+          </div>
+          <div class="hv-stat">
+            <div class="hv-stat-num">2</div>
+            <div class="hv-stat-label">Sucursales</div>
+          </div>
+          <div class="hv-stat">
+            <div class="hv-stat-num">98%</div>
+            <div class="hv-stat-label">Disponibilidad</div>
+          </div>
+        </div>
+        <div class="hv-list">
+          <div class="hv-item">
+            <div class="hv-item-dot" style="background:#22C55E"></div>
+            <span class="hv-item-name">Pedido #1042 — Doble smash</span>
+            <span class="hv-item-badge" style="background:#DCFCE7;color:#15803D">En cocina</span>
+          </div>
+          <div class="hv-item">
+            <div class="hv-item-dot" style="background:#F59E0B"></div>
+            <span class="hv-item-name">Pedido #1041 — Combo hot dog</span>
+            <span class="hv-item-badge" style="background:#FEF3C7;color:#B45309">Preparando</span>
+          </div>
+          <div class="hv-item">
+            <div class="hv-item-dot" style="background:#3B82F6"></div>
+            <span class="hv-item-name">Pedido #1040 — Perro especial</span>
+            <span class="hv-item-badge" style="background:#DBEAFE;color:#1D4ED8">Entregado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISIÓN / VISIÓN -->
+<section id="mv">
+  <div class="eyebrow fu">Quiénes somos</div>
+  <h2 class="fu d1">El propósito detrás<br>de cada línea de código</h2>
+  <div class="mv-grid">
+    <div class="mv-card fu d1">
+      <div class="mv-accent-bar" style="background:var(--blue)"></div>
+      <div class="mv-card-top" style="background:var(--blue-light)">🎯</div>
+      <h3>Misión</h3>
+      <p>Desarrollar y distribuir soluciones de software de alta calidad que respondan a las necesidades reales de cada cliente. Combinamos tecnología moderna con acompañamiento cercano — hacemos que la tecnología trabaje para las personas, no al revés.</p>
+    </div>
+    <div class="mv-card fu d2">
+      <div class="mv-accent-bar" style="background:var(--violet)"></div>
+      <div class="mv-card-top" style="background:var(--violet-light)">🔭</div>
+      <h3>Visión</h3>
+      <p>Ser la empresa de software de referencia en la región, reconocida por construir productos que duran, escalan y evolucionan junto con sus usuarios. Que cada negocio, sin importar su tamaño, tenga acceso a herramientas digitales que realmente funcionen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:3rem">
+    <div>
+      <div class="eyebrow fu">Lo que hacemos</div>
+      <h2 class="fu d1" style="margin-bottom:0">Creación y distribución<br>de software</h2>
+    </div>
+    <p class="sec-sub fu d1" style="margin-bottom:0">Desde la idea hasta el despliegue: cubrimos todo el ciclo de vida de tu producto digital con tecnología de primer nivel.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card fu">
+      <div class="srv-ico" style="background:var(--blue-light)">💻</div>
+      <h3>Desarrollo a medida</h3>
+      <p>Aplicaciones web y móviles construidas desde cero, adaptadas exactamente a tu flujo de trabajo y tus clientes.</p>
+      <a class="srv-link" href="#cta">Más información →</a>
+    </div>
+    <div class="srv-card fu d1">
+      <div class="srv-ico" style="background:var(--violet-light)">📦</div>
+      <h3>Distribución de software</h3>
+      <p>Empaquetamos, licenciamos y desplegamos soluciones para que lleguen a tus usuarios de forma segura y sin fricciones.</p>
+      <a class="srv-link" href="#cta">Más información →</a>
+    </div>
+    <div class="srv-card fu d2">
+      <div class="srv-ico" style="background:var(--green-light)">🔄</div>
+      <h3>Mantenimiento y soporte</h3>
+      <p>Actualizaciones, mejoras continuas y soporte técnico para que tu software crezca junto con tu negocio.</p>
+      <a class="srv-link" href="#cta">Más información →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <div class="cli-intro">
+    <div>
+      <div class="eyebrow fu">Clientes actuales</div>
+      <h2 class="fu d1" style="margin-bottom:.5rem">Empresas que confían<br>en InnovaSoft</h2>
+    </div>
+    <p class="sec-sub fu d1">Gastronomía, industria y servicios — sectores distintos, la misma exigencia de calidad y soporte.</p>
+  </div>
+  <div class="cli-grid">
+
+    <div class="cli-card fu">
+      <div class="cli-top-bar">
+        <span class="cli-emoji">🍖</span>
+        <span class="cli-sector-badge" style="background:var(--green-light);color:var(--green)">Gastronomía</span>
+      </div>
+      <div class="cli-name">Memory</div>
+      <div class="cli-desc">Asadero restaurante</div>
+      <div class="cli-footer">
+        <div class="cli-footer-dot"></div>
+        <span class="cli-footer-txt">Gestión de pedidos activa</span>
+      </div>
+    </div>
+
+    <div class="cli-card fu d1">
+      <div class="cli-top-bar">
+        <span class="cli-emoji">🔥</span>
+        <span class="cli-sector-badge" style="background:var(--green-light);color:var(--green)">Gastronomía</span>
+      </div>
+      <div class="cli-name">Asados La Plaza</div>
+      <div class="cli-desc">Restaurante de asados · 3 sucursales</div>
+      <div class="cli-footer">
+        <div class="cli-footer-dot"></div>
+        <span class="cli-footer-txt">Plataforma multi-sede activa</span>
+      </div>
+    </div>
+
+    <div class="cli-card fu d2">
+      <div class="cli-top-bar">
+        <span class="cli-emoji">🥩</span>
+        <span class="cli-sector-badge" style="background:var(--green-light);color:var(--green)">Gastronomía</span>
+      </div>
+      <div class="cli-name">Corralito</div>
+      <div class="cli-desc">Asadero y parrilla</div>
+      <div class="cli-footer">
+        <div class="cli-footer-dot"></div>
+        <span class="cli-footer-txt">Punto de venta activo</span>
+      </div>
+    </div>
+
+    <div class="cli-card fu d1">
+      <div class="cli-top-bar">
+        <span class="cli-emoji">🌭</span>
+        <span class="cli-sector-badge" style="background:var(--green-light);color:var(--green)">Gastronomía</span>
+      </div>
+      <div class="cli-name">Burguer Dog</div>
+      <div class="cli-desc">Hamburguesas & hot dogs · 2 sucursales</div>
+      <div class="cli-footer">
+        <div class="cli-footer-dot"></div>
+        <span class="cli-footer-txt">Sistema de pedidos activo</span>
+      </div>
+    </div>
+
+    <div class="cli-card fu d2">
+      <div class="cli-top-bar">
+        <span class="cli-emoji">⛏️</span>
+        <span class="cli-sector-badge" style="background:var(--blue-light);color:var(--blue)">Industria</span>
+      </div>
+      <div class="cli-name">Cantera Orión</div>
+      <div class="cli-desc">Industria extractiva · Cantería</div>
+      <div class="cli-footer">
+        <div class="cli-footer-dot"></div>
+        <span class="cli-footer-txt">Control operativo activo</span>
+      </div>
+    </div>
+
+    <div class="cli-card fu d3">
+      <div class="cli-top-bar">
+        <span class="cli-emoji">🕊️</span>
+        <span class="cli-sector-badge" style="background:#FDF4FF;color:#7E22CE">Servicios</span>
+      </div>
+      <div class="cli-name">Cementerio Central</div>
+      <div class="cli-desc">Servicios funerarios y parque cementerio</div>
+      <div class="cli-footer">
+        <div class="cli-footer-dot"></div>
+        <span class="cli-footer-txt">Gestión de registros activa</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-chip fu">🚀 ¿Listo para empezar?</div>
+    <h2 class="fu d1">Tu próximo software<br>comienza hoy</h2>
+    <p class="fu d2">Cuéntanos qué necesitas y construimos la solución exacta para tu empresa.</p>
+    <div class="cta-btns fu d3">
+      <a class="btn btn-white" href="https://wa.me/573106156150?text=Hola%20InnovaSoft%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20soluciones%20de%20software." target="_blank">Escribir a InnovaSoft →</a>
+      <a class="btn btn-outline-white" href="#servicios">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">
+    <div class="f-logo-icon">IS</div>
+    <span class="f-logo-text">InnovaSoft</span>
+  </div>
+  <p>© 2025 InnovaSoft — Creación y distribución de software · Colombia</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})
+},{threshold:0.08});
+document.querySelectorAll('.fu').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
